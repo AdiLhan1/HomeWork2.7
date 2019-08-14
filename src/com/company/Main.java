@@ -15,31 +15,6 @@ public class Main {
             System.out.println("Введите слово");
             String w = scanner.nextLine();
             Set<Map.Entry<String, String[]>> entries = list.entrySet();
-            for (Map.Entry<String, String[]> e : entries) {
-                if (w.equals(e.getKey())) {
-                    List<String> synonim = Arrays.asList(list.get(w));
-                    Collections.shuffle(synonim);
-
-                    System.out.println("___________________________");
-                    System.out.println("Синоним к слову " + w + ":");
-                    for (String s1 : synonim) {
-                        System.out.println(s1);
-
-                    }
-                }
-            }
-            for (Map.Entry<String, String[]> entry : entries) {
-                for (String s : entry.getValue()) {
-                    if (w.equals(s)) {
-                        System.out.println("___________________________");
-                        System.out.println("Синоноим к слову " + w + ":");
-                        System.out.println(entry.getKey());
-                        for (String t : entry.getValue()) {
-                            System.out.println(t);
-                        }
-                    }
-                }
-            }
             Map<String, String[]> stringMap = new HashMap<>();
             for (Map.Entry<String, String[]> entry : entries) {
                 String key = entry.getKey();
@@ -56,6 +31,13 @@ public class Main {
                         }
                     }
                     stringMap.put(synonymous, value2);
+
+                    for (String e : value2) {
+                        if (w.equals(e)) {
+                            System.out.println(synonymous);
+                        }
+
+                    }
                 }
 
             }
